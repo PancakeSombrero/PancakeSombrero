@@ -6,4 +6,5 @@ On another note, you may be asking, where did the "PancakeSombrero" name come fr
 Pancakes; as a result, I thought why not combine the two into a name :)
 
 Use:<br>
-All you have to do is download the framework and import it into your html page; in other words, in your head tag, add "<script src='PancakeSombrero.js'></script>"
+(1) All you have to do is download the framework and import it into your html page; in other words, in your head tag, add "<script src='PancakeSombrero.js'></script>"
+(2) In your code, use the PancakeSombrero object to call the functions! For example, if you wish to split an array into two separate arrays using a target, all you have to do is call PancakeSombrero.splitList([1,2,3,4,5], 3).
