@@ -1,5 +1,5 @@
 # PancakeSombrero
-PancakeSombrero is a simple JavaScript framework for random utilities. Essentially, this framework is intended to be a collection of functions that include those you wish JavaScript had to begin with! I am using this framework as a brain dump of code that I feel could be useful for fellow JavaScript developers.
+PancakeSombrero is a simple JavaScript framework for random utilities. Essentially, this framework is intended to be a collection of functions that you wish JavaScript had to begin with! I am using this framework as a brain dump of code that I feel could be useful for fellow JavaScript developers.
 
 Name Origin:<br>
 On another note, you may be asking, where did the "PancakeSombrero" name come from? Well, it may sound odd, but I love Sombreros and
