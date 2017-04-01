@@ -3,6 +3,7 @@ var pancakeSombrero = (function() {
 	function _splitListByIndex(list, splitIndex) {
 		firstHalf = [];
 		secondHalf = [];
+		returnDict = {}
 
 		if (splitIndex == 0 || splitIndex == list.length - 1) {
 			throw "You cannot split with a target that equals the first or last element in a list"; 
@@ -14,6 +15,7 @@ var pancakeSombrero = (function() {
 				for (var j = listLength - 1; j > splitIndex; j--) {
 					secondHalf.push(list[j]);
 				}
+				returnDict["split-index"] = splitIndex
 			} else {
 				splitIndex = list.length / 2
 				for (var j = listLength - 1; j >= splitIndex; j--) {
@@ -23,14 +25,23 @@ var pancakeSombrero = (function() {
 		} else {
 			for (var j = listLength - 1; j > splitIndex; j--) {
 				secondHalf.push(list[j]);
-			}			
+			}
+			returnDict["split-index"] = splitIndex
 		}
 
 		for (var i = 0; i < splitIndex; i++) {
 			firstHalf.push(list[i]);
 		}
 
-		return [firstHalf, secondHalf];
+		if (Object.keys(returnDict).length > 0) {
+			returnDict["first-half"] = firstHalf
+			returnDict["second-half"] = secondHalf
+		} else {
+			returnDict["first-half"] = firstHalf
+			returnDict["second-half"] = secondHalf
+		}
+
+		return returnDict
 	}
 
 	function splitList(list, target) {
@@ -48,8 +59,24 @@ var pancakeSombrero = (function() {
 		}
 	}
 
+	function getLowestNumber(list) {
+		lowestNumber = 0
+		for (i in list) {
+			if (lowestNumber == 0) {
+				lowestNumber = list[i];
+			}
+			for (j in list) {
+				if (list[j] < list[j] && list[j] < lowestNumber) {
+					lowestNumber = list[j];
+				}
+			}
+		}
+		return lowestNumber;
+	}
+
 	return {
-		splitList: splitList
+		splitList: splitList,
+		getLowestNumber: getLowestNumber
 	}
 
 })();
