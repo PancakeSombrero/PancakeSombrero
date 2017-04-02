@@ -62,7 +62,7 @@ var pancakeSombrero = (function() {
 	function getLowestNumber(list) {
 		if (!Array.isArray(list)) {
 			list = list.split(',')
-			
+
 			for (i in list) {
 				list[i] = parseInt(list[i])
 			}
