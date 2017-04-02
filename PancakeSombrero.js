@@ -44,39 +44,48 @@ var pancakeSombrero = (function() {
 		return returnDict
 	}
 
-	function splitList(list, target) {
+	function splitList(list, targetIndex) {
 		listLength = list.length;
 
-		if (target == undefined) {
+		if (targetIndex == undefined) {
 			if (list.length % 2 != 0) {
 				return _splitListByIndex(list)
 			} else {
 				return _splitListByIndex(list)
 			}
 		} else {
-			splitIndex = list.indexOf(target);
+			splitIndex = list.indexOf(targetIndex);
 			return _splitListByIndex(list, splitIndex)
 		}
 	}
 
 	function getLowestNumber(list) {
-		lowestNumber = 0
+		if (!Array.isArray(list)) {
+			list = list.split(',')
+			
+			for (i in list) {
+				list[i] = parseInt(list[i])
+			}
+		}
+		lowestNumberObj = {}
 		for (i in list) {
-			if (lowestNumber == 0) {
-				lowestNumber = list[i];
+			if (!lowestNumberObj.hasOwnProperty('lowest-number')) {
+				lowestNumberObj['lowest-number'] = list[i];
+				lowestNumberObj['index'] = parseInt(i);
 			}
 			for (j in list) {
-				if (list[j] < list[j] && list[j] < lowestNumber) {
-					lowestNumber = list[j];
+				if (list[j] < list[i] && list[j] < lowestNumberObj['lowest-number']) {
+					lowestNumberObj['lowest-number'] = list[j];
+					lowestNumberObj['index'] = parseInt(j);
 				}
 			}
 		}
-		return lowestNumber;
+		return lowestNumberObj;
 	}
 
 	return {
 		splitList: splitList,
-		getLowestNumber: getLowestNumber
+		getLowestNumber: getLowestNumber,
 	}
 
 })();
