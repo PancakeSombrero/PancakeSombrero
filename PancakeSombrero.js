@@ -60,13 +60,18 @@ var pancakeSombrero = (function() {
 	}
 
 	function getLowestNumber(list) {
-		if (!Array.isArray(list)) {
-			list = list.split(',')
+		if (arguments.length > 1) {
+			list = Array.from(arguments);
+		} else {
+			if (typeof arguments[0] == 'string') {
+				list = arguments[0].split(',')
 
-			for (i in list) {
-				list[i] = parseInt(list[i])
+				for (i in list) {
+					list[i] = parseInt(list[i])
+				}
 			}
 		}
+
 		lowestNumberObj = {}
 		for (i in list) {
 			if (!lowestNumberObj.hasOwnProperty('lowest-number')) {
